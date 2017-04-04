@@ -1,0 +1,15 @@
+{
+    "name": "bringel/tablesmith",
+    "description": "Insert data into your sql database using flat files",
+    "type": "project",
+    "require": {
+        "symfony/console": "^3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brad Ringel",
+            "email": "brad.ringel@gmail.com"
+        }
+    ]
+}
