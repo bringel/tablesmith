@@ -3,7 +3,8 @@
     "description": "Insert data into your sql database using flat files",
     "type": "project",
     "require": {
-        "symfony/console": "^3.2"
+        "symfony/console": "^3.2",
+        "symfony/yaml": "^3.2"
     },
     "license": "MIT",
     "authors": [
