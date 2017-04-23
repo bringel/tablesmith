@@ -27,6 +27,8 @@ class AddCommand extends Command {
     $data = $this->readFileData($input->getArgument('filePath'), $input->getOption('directory'), $output);
 
     $tablesmithModel = TablesmithModel::fromJson($data);
+
+    var_dump($tablesmithModel);
     // $db = new PDO();
   }
 
