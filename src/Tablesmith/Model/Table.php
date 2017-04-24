@@ -30,4 +30,16 @@ class Table {
 
     return $t;
   }
+
+  function getDependencies() {
+    $deps = array();
+    foreach($this->columns as $c) {
+      if ($c->linkToTableName) {
+        array_push($deps, $c->linkToTableName);
+      }
+    }
+
+    $deps = array_unique($deps);
+    return $deps;
+  }
 }

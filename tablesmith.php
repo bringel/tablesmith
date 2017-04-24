@@ -13,5 +13,4 @@ $addCommand = new AddCommand();
 
 $app->add($addCommand);
 
-$app->setDefaultCommand($addCommand->getName());
 $app->run();

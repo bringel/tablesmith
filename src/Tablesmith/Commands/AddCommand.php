@@ -28,7 +28,7 @@ class AddCommand extends Command {
 
     $tablesmithModel = TablesmithModel::fromJson($data);
 
-    var_dump($tablesmithModel);
+    $tablesmithModel->getOrderFromDependencies();
     // $db = new PDO();
   }
 
