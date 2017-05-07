@@ -4,7 +4,8 @@
   "type": "project",
   "require": {
     "symfony/console": "^3.2",
-    "symfony/yaml": "^3.2"
+    "symfony/yaml": "^3.2",
+    "aura/sql": "^2.5"
   },
   "license": "MIT",
   "authors": [

@@ -16,7 +16,7 @@ class TablesmithModel {
 
     foreach($data as $tableData) {
       $t = Table::fromJson($tableData);
-      $this->tables[$t->name] = $t;
+      $tablesmith->tables[$t->name] = $t;
     }
 
     return $tablesmith;

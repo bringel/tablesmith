@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use \PDO;
 
 use Tablesmith\Model\TablesmithModel;
+use Tablesmith\DbClient;
 
 
 
@@ -27,9 +28,7 @@ class AddCommand extends Command {
     $data = $this->readFileData($input->getArgument('filePath'), $input->getOption('directory'), $output);
 
     $tablesmithModel = TablesmithModel::fromJson($data);
-
-    $tablesmithModel->getOrderFromDependencies();
-    // $db = new PDO();
+    $dbClient = new DbClient($tablesmithModel, $input->getArgument('connectionString'));
   }
 
   private function readFileData(string $filePath, bool $directory, OutputInterface $output){

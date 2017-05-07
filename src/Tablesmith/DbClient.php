@@ -3,22 +3,25 @@
 namespace Tablesmith;
 
 use Tablesmith\Model\TablesmithModel;
+use Aura\Sql\ExtendedPdo;
 
 class DbClient {
 
   private $model;
+  private $db;
 
-  function __construct(TablesmithModel $model) {
+  function __construct(TablesmithModel $model, string $connectionString) {
     $this->model = $model;
+    $this->db = new ExtendedPdo($connectionString);
   }
 
   private function getOrderFromDependencies() {
     $tableNames = array_map(function($t) {
       return $t->name;
-    }, $this->tables);
+    }, $this->model->tables);
     $deps = array();
 
-    foreach($this->tables as $t) {
+    foreach($this->model->tables as $t) {
       $tableDeps = $t->getDependencies();
       $deps[$t->name] = $tableDeps;
     }
