@@ -16,35 +16,9 @@ class TablesmithModel {
 
     foreach($data as $tableData) {
       $t = Table::fromJson($tableData);
-      array_push($tablesmith->tables, $t);
+      $this->tables[$t->name] = $t;
     }
 
     return $tablesmith;
-  }
-
-  function getOrderFromDependencies() {
-    $tableNames = array_map(function($t) {
-      return $t->name;
-    }, $this->tables);
-    $deps = array();
-
-    foreach($this->tables as $t) {
-      $tableDeps = $t->getDependencies();
-      $deps[$t->name] = $tableDeps;
-    }
-
-
-    usort($tableNames, function($one, $two) use ($deps){
-        $tableDeps = $deps[$two];
-
-        if(array_search($one, $tableDeps) === false){
-          return 1;
-        }
-        else {
-          return -1;
-        }
-    });
-
-    return $tableNames;
   }
 }
